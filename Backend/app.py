@@ -4,12 +4,13 @@ from openai import OpenAI
 import json
 from flask import Flask, render_template
 
-app = Flask(__name__)
+# Update the Flask app to use the frontend templates folder
+app = Flask(__name__, template_folder="../frontend/templates")
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# Load JSON input from file
+# Load JSON input from file and build prompt
 json_filepath = "c:\\Users\\sssgu\\OneDrive\\Desktop\\Hoohacks\\ScholarMatch\\Backend\\Tests\\Inputs\\test_input.json"
 with open(json_filepath, "r", encoding="utf-8") as f:
     data = json.load(f)
@@ -35,7 +36,7 @@ response = client.responses.create(
     input=prompt
 )
 
-# Save GPT's Markdown response to a file
+# Save GPT's Markdown response to a file (fixed syntax error)
 md_filepath = "c:\\Users\\sssgu\\OneDrive\\Desktop\\Hoohacks\\ScholarMatch\\Backend\\Tests\\Outputs\\results.md"
 with open(md_filepath, "w", encoding="utf-8") as f:
     f.write(response.output_text)
@@ -48,5 +49,8 @@ def display_md():
     with open(md_filepath, "r", encoding="utf-8") as f:
         md_content = f.read()
     return render_template("results.html", md_content=md_content)
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 

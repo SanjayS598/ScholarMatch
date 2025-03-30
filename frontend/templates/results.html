@@ -9,9 +9,9 @@
     <h1>Scholarship Results</h1>
     <div id="content"></div>
     <script>
-        // Convert markdown content to HTML and insert into the content div
+        // Convert the markdown content (passed in as md_content) to HTML and display it
         var mdContent = `{{ md_content }}`;
-        document.getElementById('content').innerHTML = marked.parse(mdContent);
+        document.getElementById("content").innerHTML = marked.parse(mdContent);
     </script>
 </body>
 </html>
