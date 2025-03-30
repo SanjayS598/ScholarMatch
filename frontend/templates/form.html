@@ -15,21 +15,78 @@
     <h1>Scholarship Finder</h1>
     <p>Please enter in the following information to generate your list of scholarships.</p>
     <form id="scholarshipForm">
-        <!-- GPA -->
+
+        <!-- Active Degree -->
+        <label for="degree">Active Degree</label>
+        <select id="degree" name= "degree">
+            <option value="" disabled selected>Select...</option>
+            <option value="associate">Associates ( &lt;2 years)</option>
+            <option value="bachelors">Bachelors ( &lt;4 years)</option>
+            <option value="masters">Masters ( &lt;2 years) </option>
+            <option value="phd">PHD</option>
+        </select>
+
+        <!-- Field of Study -->
+        <label for="major">Field of Study</label>
+        <select id="major" name= "major">
+            <option value="" disabled selected>Select...</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Biology">Biology</option>
+            <option value="Business Administration">Business Administration</option>
+            <option value="Finance">Finance</option>
+            <option value="Economics">Economics</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Political Science">Political Science</option>
+            <option value="Sociology">Sociology</option>
+            <option value="History">History</option>
+            <option value="English">English</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="Education">Education</option>
+            <option value="Art History">Art History</option>
+            <option value="Linguistics">Linguistics</option>
+            <option value="Environmental Science">Environmental Science</option>
+            <option value="Health Sciences">Health Sciences</option>
+        </select>
+
+         <!--Graduation Year-->
+         <label for="graduation"> Select your Graduation Year--</label>
+         <select id="graduation" name="graduation">
+             <option value="" disabled selected>Select...</option>
+             <option value="2025-May">May 2025</option>
+             <option value="2025-December">December 2025</option>
+             <option value="2026-May">May 2026</option>
+             <option value="2026-December">December 2026</option>
+             <option value="2027-May">May 2027</option>
+             <option value="2027-December">December 2027</option>
+             <option value="2028-May">May 2028</option>
+             <option value="2028-December">December 2028</option>
+             <option value="2029-May">May 2029</option>
+             <option value="2029-December">December 2029</option>
+             <option value="2030-May">May 2030</option>
+             <option value="2030-December">December 2030</option>
+         </select>
+
+        <!-- GPA-->
         <label for="gpa">GPA (0.0 - 4.0):</label>
         <input type="number" id="gpa" name="gpa" min="0" max="4" step="0.1" required>
 
-        <!-- Citizenship -->
-        <label for="citizenship">US Citizenship Status:</label>
-        <select id="citizenship" name="citizenship" required>
-            <option value="citizen">US Citizen</option>
-            <option value="permanent_resident">Permanent Resident</option>
-            <option value="international">International Student</option>
-        </select>
 
         <!-- Skills -->
         <label for="skills">Skills/Soft Skills (comma-separated):</label>
         <textarea id="skills" name="skills" placeholder="Leadership, Python, Public Speaking..." required></textarea>
+
+        <!-- Citizenship -->
+        <label for="citizenship">US Citizenship Status:</label>
+        <select id="citizenship" name="citizenship" required>
+            <option value = "select">Select...</option>
+            <option value="citizen">US Citizen</option>
+            <option value="permanent_resident">Permanent Resident</option>
+            <option value="international">International Student</option>
+        </select>
 
         <!-- Household Income -->
         <label for="income">Household Income (USD):</label>
@@ -38,16 +95,22 @@
         <!-- Gender -->
         <label for="gender">Gender:</label>
         <select id="gender" name="gender">
+            <option value="" disabled selected>Select...</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="non_binary">Non-Binary</option>
             <option value="other">Other</option>
             <option value="prefer_not_to_say">Prefer Not to Say</option>
         </select>
+
         <!-- Military Status -->
-         <label for="Military Status">Military Status:</label>
-         <select id="Military" name="Military">
-            <otion value = >
+         <label for="military">Military Status</label>
+         <select id="military" name="military">
+            <option value="" disabled selected>Select...</option>
+            <option value ="veteran">Veteran</option>
+            <option value ="active">Active Military</option>
+            <option value ="dependent">Dependent of Active Military</option>
+         </select>
 
         <button type="submit">Find Scholarships</button>
     </form>
@@ -60,11 +123,17 @@
             
             // Get form data
             const formData = {
+                
+                degree: document.getElementById("degree").value,
+                major: document.getElementById("major").value,
+                graduation: document.getElementById("graduation").value,
                 gpa: parseFloat(document.getElementById("gpa").value),
-                citizenship: document.getElementById("citizenship").value,
                 skills: document.getElementById("skills").value.split(",").map(skill => skill.trim()),
+                citizenship: document.getElementById("citizenship").value,
                 income: parseInt(document.getElementById("income").value),
-                gender: document.getElementById("gender").value
+                gender: document.getElementById("gender").value,
+                military: document.getElementById("military").value
+
             };
 
             // Send to Flask backend
