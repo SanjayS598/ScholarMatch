@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Scholarship Results</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
 </head>
 <body>
     <h1>Scholarship Results</h1>
-    <pre>
-        {{ scholarships | tojson(indent=2) }}
-    </pre>
+    <div id="content"></div>
+    <script>
+        // Convert the markdown content (passed in as md_content) to HTML and display it
+        var mdContent = `{{ md_content }}`;
+        document.getElementById("content").innerHTML = marked.parse(mdContent);
+    </script>
 </body>
 </html>
