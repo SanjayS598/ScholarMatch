@@ -25,7 +25,6 @@ def search_scholarships():
     
     # Extract form-fields from the received JSON
     gpa = data.get("gpa", "")
-    age = data.get("age", "")
     major = data.get("major", "")
     degree = data.get("degree", "")
     demographics = data.get("demographics", "")
@@ -40,7 +39,6 @@ def search_scholarships():
     prompt = (
         f"Find 10 scholarships for an applicant with the following details:\n"
         f"GPA: {gpa}\n"
-        f"Age: {age}\n"
         f"Degree Level: {degree}\n"
         f"Ethnicity: {demographics}\n"
         f"Major: {major}\n"
@@ -51,6 +49,7 @@ def search_scholarships():
         f"Annual Income: {income}\n"
         f"Gender: {gender}\n"
         f"Military Status: {military_status}\n\n"
+        "For each scholarship, give it a match score with the applicant out of 100, make sure to include the scholarship name, amount, eligibility criteria, deadline, and a brief description"
     )
 
     response = client.responses.create(

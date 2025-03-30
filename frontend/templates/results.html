@@ -6,6 +6,7 @@
     <title>Scholarship Results</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
     <style>
+        /* Keep original dark color scheme and add animations */
         body {
             font-family: "Arial", sans-serif;
             background-color: #2C2F33;
@@ -14,16 +15,37 @@
             margin: 0 auto;
             padding: 20px;
             text-align: center;
+            /* Subtle background pulse animation retaining dark tones */
+            animation: bgPulse 20s infinite alternate;
+        }
+        @keyframes bgPulse {
+            0% { background-color: #2C2F33; }
+            100% { background-color: #23272A; }
         }
         h1 {
             text-align: center;
+            font-size: 3em;
+            margin-top: 20px;
+            animation: fadeInDown 1.5s ease-out;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         #content {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
             background: #1E2124;
-            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             text-align: left;
+            animation: popIn 1s ease-out;
+        }
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            80% { opacity: 1; transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -31,7 +53,6 @@
     <h1>Scholarship Results</h1>
     <div id="content"></div>
     <script>
-        // Convert the markdown content (passed in as md_content) to HTML and display it
         var mdContent = `{{ md_content }}`;
         document.getElementById("content").innerHTML = marked.parse(mdContent);
     </script>
