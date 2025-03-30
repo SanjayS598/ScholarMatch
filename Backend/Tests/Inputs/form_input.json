@@ -1,0 +1,17 @@
+{
+  "degree": "bachelors",
+  "major": "Engineering",
+  "graduation": "2026-May",
+  "gpa": 3,
+  "skills": [
+    "dssdf"
+  ],
+  "sports": [
+    "dsf"
+  ],
+  "citizenship": "citizen",
+  "income": 3333333,
+  "gender": "male",
+  "demographics": "Asian",
+  "military": "Not military afiliated"
+}
