@@ -5,19 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scholarship Finder</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
-        label { display: block; margin-top: 10px; }
-        input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; }
-        button { background: #4CAF50; color: white; padding: 10px; border: none; cursor: pointer; margin-top: 20px; }
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #2C2F33;
+            color: #FFFFFF;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, p {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 98%;
+            padding: 8px;
+            margin-top: 5px;
+            background-color: #23272A;
+            color: #FFFFFF;
+            border: 2px solid #7289DA;
+            border-radius: 5px;
+            font-size: 16px;
+
+        }
+        button {
+            background: #7289DA;
+            color: white;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #5B6EAE;
+        }
+        form {
+            background: #1E2124;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 4px px rgba(0, 0, 0, 0.3);
+        }
+        textarea {
+            resize: none;
+        }
     </style>
 </head>
 <body>
     <h1>Scholarship Finder</h1>
     <p>Please enter in the following information to generate your list of scholarships.</p>
     <form id="scholarshipForm">
-
+        
         <!-- Active Degree -->
-        <label for="degree">Active Degree</label>
+        <label for="degree">Active Degree:</label>
         <select id="degree" name= "degree">
             <option value="" disabled selected>Select...</option>
             <option value="associate">Associates ( &lt;2 years)</option>
@@ -27,7 +74,7 @@
         </select>
 
         <!-- Field of Study -->
-        <label for="major">Field of Study</label>
+        <label for="major">Field of Study:</label>
         <select id="major" name= "major">
             <option value="" disabled selected>Select...</option>
             <option value="Computer Science">Computer Science</option>
@@ -52,37 +99,35 @@
             <option value="Health Sciences">Health Sciences</option>
         </select>
 
-         <!--Graduation Year-->
-         <label for="graduation"> Select your Graduation Year--</label>
-         <select id="graduation" name="graduation">
-             <option value="" disabled selected>Select...</option>
-             <option value="2025-May">May 2025</option>
-             <option value="2025-December">December 2025</option>
-             <option value="2026-May">May 2026</option>
-             <option value="2026-December">December 2026</option>
-             <option value="2027-May">May 2027</option>
-             <option value="2027-December">December 2027</option>
-             <option value="2028-May">May 2028</option>
-             <option value="2028-December">December 2028</option>
-             <option value="2029-May">May 2029</option>
-             <option value="2029-December">December 2029</option>
-             <option value="2030-May">May 2030</option>
-             <option value="2030-December">December 2030</option>
-         </select>
+        <!--Graduation Year-->
+        <label for="graduation"> Select your Graduation Year--</label>
+        <select id="graduation" name="graduation">
+            <option value="" disabled selected>Select...</option>
+            <option value="2025-May">May 2025</option>
+            <option value="2025-December">December 2025</option>
+            <option value="2026-May">May 2026</option>
+            <option value="2026-December">December 2026</option>
+            <option value="2027-May">May 2027</option>
+            <option value="2027-December">December 2027</option>
+            <option value="2028-May">May 2028</option>
+            <option value="2028-December">December 2028</option>
+            <option value="2029-May">May 2029</option>
+            <option value="2029-December">December 2029</option>
+            <option value="2030-May">May 2030</option>
+            <option value="2030-December">December 2030</option>
+        </select>
 
-        <!-- GPA-->
-        <label for="gpa">GPA (0.0 - 4.0):</label>
-        <input type="number" id="gpa" name="gpa" min="0" max="4" step="0.1" required>
+       <!-- GPA-->
+       <label for="gpa">GPA (0.0 - 4.0):</label>
+       <input type="number" id="gpa" name="gpa" min="0" max="4" step="0.1" required>
 
+       <!-- Skills -->
+       <label for="skills">Skills/Soft Skills (comma-separated):</label>
+       <textarea id="skills" name="skills" placeholder="Leadership, Python, Public Speaking..." required></textarea>
 
-        <!-- Skills -->
-        <label for="skills">Skills/Soft Skills (comma-separated):</label>
-        <textarea id="skills" name="skills" placeholder="Leadership, Python, Public Speaking..." required></textarea>
-
-        <!-- Sports -->
-        <label for="sports">Sports/activities (comma-separated):</label>
-        <textarea id="sports" name="sports" placeholder="Football, Soccer, Tennis, Basketball..." required></textarea>
-
+       <!-- Sports -->
+       <label for="sports">Sports/activities (comma-separated):</label>
+       <textarea id="sports" name="sports" placeholder="Football, Soccer, Tennis, Basketball..." required></textarea>
 
         <!-- Citizenship -->
         <label for="citizenship">US Citizenship Status:</label>
@@ -121,7 +166,7 @@
         </select>
 
         <!-- Military Status -->
-         <label for="military">Military Status</label>
+         <label for="military">Military Status:</label>
          <select id="military" name="military">
             <option value="" disabled selected>Select...</option>
             <option value ="veteran">Veteran</option>
