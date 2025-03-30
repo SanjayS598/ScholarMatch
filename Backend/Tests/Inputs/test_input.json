@@ -2,6 +2,15 @@
   "gpa": "3.8",
   "age": "22",
   "major": "Computer Science",
-  "studying_level": "Undergraduate",
-  "demographics": "Hispanic"
+  "degree": "Undergraduate",
+  "demographics": "Asian",
+  "skills": "Leadership",
+  "sports": "Soccer",
+  "citizenship": "citizen",
+  "income": "50000",
+  "gender": "male",
+  "milary_status": "Not military afiliated",
+  "graduation": "2026-December"
+
+
 }

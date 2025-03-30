@@ -79,6 +79,11 @@
         <label for="skills">Skills/Soft Skills (comma-separated):</label>
         <textarea id="skills" name="skills" placeholder="Leadership, Python, Public Speaking..." required></textarea>
 
+        <!-- Sports -->
+        <label for="sports">Sports/activities (comma-separated):</label>
+        <textarea id="sports" name="sports" placeholder="Football, Soccer, Tennis, Basketball..." required></textarea>
+
+
         <!-- Citizenship -->
         <label for="citizenship">US Citizenship Status:</label>
         <select id="citizenship" name="citizenship" required>
@@ -89,7 +94,7 @@
         </select>
 
         <!-- Household Income -->
-        <label for="income">Household Income (USD):</label>
+        <label for="income">Annual Household Income (USD):</label>
         <input type="number" id="income" name="income" min="0" required>
 
         <!-- Gender -->
@@ -103,6 +108,18 @@
             <option value="prefer_not_to_say">Prefer Not to Say</option>
         </select>
 
+        <!-- Ethnicity -->
+        <label for="demographics">Ethnicity:</label>
+        <select id="demographics" name="demographics">
+            <option value="" disabled selected>Select...</option>
+            <option value="Hispanic">Hispanic</option>
+            <option value="White">White</option>
+            <option value="African American">African American</option>
+            <option value="Asian">Asian</option>
+            <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
+            <option value="prefer_not_to_say">Prefer Not to Say</option>
+        </select>
+
         <!-- Military Status -->
          <label for="military">Military Status</label>
          <select id="military" name="military">
@@ -110,6 +127,7 @@
             <option value ="veteran">Veteran</option>
             <option value ="active">Active Military</option>
             <option value ="dependent">Dependent of Active Military</option>
+            <option value ="Not military afiliated">Not military afiliated</option>
          </select>
 
         <button type="submit">Find Scholarships</button>
@@ -123,17 +141,17 @@
             
             // Get form data
             const formData = {
-                
                 degree: document.getElementById("degree").value,
                 major: document.getElementById("major").value,
                 graduation: document.getElementById("graduation").value,
                 gpa: parseFloat(document.getElementById("gpa").value),
                 skills: document.getElementById("skills").value.split(",").map(skill => skill.trim()),
+                sports: document.getElementById("sports").value.split(",").map(sport => sport.trim()),
                 citizenship: document.getElementById("citizenship").value,
                 income: parseInt(document.getElementById("income").value),
                 gender: document.getElementById("gender").value,
+                demographics: document.getElementById("demographics").value, 
                 military: document.getElementById("military").value
-
             };
 
             // Send to Flask backend
@@ -148,6 +166,12 @@
             } catch (error) {
                 console.error("Error:", error);
             }
+
+            // Delay 15 seconds before redirecting to the results page
+            
+            window.location.href = "http://localhost:5000/display_md";
+            console.log("Redirecting to results page after 15 seconds delay.");
+            
         });
     </script>
 </body>
